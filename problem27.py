@@ -47,16 +47,24 @@ def prime_length(a, b):
 
 # Note that b must be prime, otherwise n=0 will yield a non-prime...
 # Also note that b must be greater than 0, for this reason, thus
-# we do not have to iterate from -1000 to 1000
+# we do not have to iterate from -1000 to 1000, nor do we need to
+# check even b's
 maxPrimeLength = 0
 maxPrimeLengthA = 0
 maxPrimeLengthB = 0
 for a in range(-1000, 1000):
-	for b in range(0, 1000):
-		primeLength = prime_length(a, b)
-		if primeLength > maxPrimeLength:
-			maxPrimeLength = primeLength
+	b = 1
+	while b < 1000:
+		p = prime_length(a, b)
+		if p > maxPrimeLength:
+			maxPrimeLength = p
 			maxPrimeLengthA = a
 			maxPrimeLengthB = b
+
+		if b < 3:
+			b -= 1
+		b += 2
+		
+		
 
 print("a = %d, b = %d gave %d consecutive primes" % (maxPrimeLengthA, maxPrimeLengthB, maxPrimeLength))
