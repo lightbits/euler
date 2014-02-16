@@ -62,7 +62,7 @@ print(m_f)
 # Kinda hard to calculate though...
 # Could do 1 - sum from x = 0 to 431 { P(x) } = 1 - P(X <= 431)
 
-# Calculate (n C x) / (2 ^ n) and return simplified(?) fraction
+# Calculate (n C x) / (2 ^ n) and return it as a fraction (num, den)
 def P(n, x):
 	# For example: n = 10, x = 5
 	# 			 	10 9 8 7 6
