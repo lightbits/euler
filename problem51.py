@@ -10,3 +10,23 @@
 # Find the smallest prime which, by replacing part of the number 
 # (not necessarily adjacent digits) with the same digit, 
 # is part of an eight prime value family.
+
+############
+# Solution #
+############
+import math
+
+
+def isPrime(n):
+	if n % 2 == 0:
+		return False
+	lim = int(math.sqrt(n) + 1)
+	for i in range(3, lim, 2):
+		if n % i == 0:
+			return False
+	return True
+
+primes = []
+for n in range(56000, 58000):
+	if (isPrime(n)):
+		primes.append(n)
